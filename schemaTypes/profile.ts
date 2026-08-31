@@ -31,11 +31,48 @@ export const profile = defineType({
     }),
     defineField({
       name: 'quickSkills',
-      title: 'Quick Skill Badges (Hero)',
-      description: 'Skill pill badge di bawah Hero (misal: React/Next.js, TypeScript, Figma)',
+      title: 'Quick Skills (Under Headline)',
       type: 'array',
-      of: [defineArrayMember({ type: 'string' })],
-      initialValue: ['React / Next.js', 'TypeScript', 'Figma', 'Node.js', 'Tailwind CSS'],
+      description: 'Daftar skill/teknologi yang tampil sebagai badge di bawah headline hero',
+      of: [
+        defineArrayMember({
+          type: 'object',
+          name: 'quickSkill',
+          title: 'Quick Skill',
+          fields: [
+            defineField({
+              name: 'name',
+              title: 'Skill Name',
+              type: 'string',
+              placeholder: 'e.g. React / Next.js, Figma, TypeScript',
+              validation: (Rule) => Rule.required().error('Nama skill wajib diisi'),
+            }),
+            defineField({
+              name: 'icon',
+              title: 'Custom Icon (SVG / PNG)',
+              type: 'image',
+              description:
+                'Upload file icon (format SVG/PNG transparan direkomendasikan). Jika dikosongkan, frontend akan menggunakan icon default.',
+              options: {
+                hotspot: false,
+              },
+            }),
+          ],
+          preview: {
+            select: {
+              title: 'name',
+              media: 'icon',
+            },
+          },
+        }),
+      ],
+      initialValue: [
+        { name: 'React / Next.js' },
+        { name: 'TypeScript' },
+        { name: 'Figma' },
+        { name: 'Node.js' },
+        { name: 'Tailwind CSS' },
+      ],
     }),
     defineField({
       name: 'heroPreviewImages',
@@ -87,7 +124,12 @@ export const profile = defineType({
       name: 'email',
       title: 'Contact Email',
       type: 'string',
-      validation: (Rule) => Rule.email(),
+      description: 'Email utama untuk menerima pesan dari tombol "Discuss a project"',
+      validation: (Rule) =>
+        Rule.required()
+          .email()
+          .error('Mohon masukkan format email yang valid (contoh: name@domain.com)'),
+      initialValue: 'rifqyaliansyah@gmail.com',
     }),
     defineField({
       name: 'githubUsername',
@@ -97,29 +139,48 @@ export const profile = defineType({
     }),
     defineField({
       name: 'socialLinks',
-      title: 'Social Media Links',
+      title: 'Footer Social Links',
       type: 'array',
+      description:
+        'Daftar tautan sosial media yang tampil di footer. Bisa ditambah, dihapus, dan diatur urutannya.',
       of: [
         defineArrayMember({
           type: 'object',
+          name: 'socialLink',
+          title: 'Social Link',
           fields: [
-            {
+            defineField({
               name: 'platform',
-              title: 'Platform Name',
+              title: 'Platform / Label',
               type: 'string',
-              options: {
-                list: [
-                  { title: 'X (Twitter)', value: 'x' },
-                  { title: 'Instagram', value: 'instagram' },
-                  { title: 'Threads', value: 'threads' },
-                  { title: 'LinkedIn', value: 'linkedin' },
-                  { title: 'YouTube', value: 'youtube' },
-                  { title: 'GitHub', value: 'github' },
-                ],
-              },
-            },
-            { name: 'url', title: 'URL', type: 'url' },
+              placeholder: 'e.g. GitHub, X, Instagram, Dribbble, LinkedIn, YouTube',
+              validation: (Rule) => Rule.required().error('Nama platform wajib diisi'),
+            }),
+            defineField({
+              name: 'url',
+              title: 'Target URL',
+              type: 'url',
+              placeholder: 'https://...',
+              validation: (Rule) =>
+                Rule.required()
+                  .uri({ scheme: ['http', 'https', 'mailto'] })
+                  .error('Mohon masukkan URL yang valid'),
+            }),
+            defineField({
+              name: 'customIcon',
+              title: 'Custom Icon (SVG / PNG)',
+              type: 'image',
+              description:
+                'Upload icon kustom (SVG/PNG transparan). Jika dikosongkan, platform populer (X, Instagram, Threads, LinkedIn, YouTube, GitHub) akan menggunakan vector icon bawaan.',
+            }),
           ],
+          preview: {
+            select: {
+              title: 'platform',
+              subtitle: 'url',
+              media: 'customIcon',
+            },
+          },
         }),
       ],
     }),

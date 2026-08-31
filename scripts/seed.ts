@@ -12,7 +12,13 @@ async function seed() {
     name: 'Rifqy Aliansyah',
     headline:
       'Design Engineer who ships products, not just mockups. Part of Google Indonesia',
-    quickSkills: ['React / Next.js', 'TypeScript', 'Figma', 'Node.js', 'Tailwind CSS'],
+    quickSkills: [
+      { _key: 'qs1', name: 'React / Next.js' },
+      { _key: 'qs2', name: 'TypeScript' },
+      { _key: 'qs3', name: 'Figma' },
+      { _key: 'qs4', name: 'Node.js' },
+      { _key: 'qs5', name: 'Tailwind CSS' },
+    ],
     aboutHeadline: 'Design is how I solve problems and create impact.',
     aboutBio:
       "I'm a multidisciplinary designer who loves crafting meaningful and functional digital experiences. With a keen eye for detail and a passion for design, I help brands and products connect with their audience.",
@@ -21,6 +27,7 @@ async function seed() {
       { _key: 'h2', label: 'Based in Indonesia', icon: 'map-pin' },
       { _key: 'h3', label: 'Open to freelance & collaborations', icon: 'sparkles' },
     ],
+    email: 'rifqyaliansyah@gmail.com',
     githubUsername: 'rifqyaliansyah',
     socialLinks: [
       { _key: 's1', platform: 'x', url: 'https://x.com/' },
