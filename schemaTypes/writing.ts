@@ -34,12 +34,6 @@ export const writing = defineType({
       fields: [{ name: 'alt', type: 'string', title: 'Alt Text' }],
     }),
     defineField({
-      name: 'publishedAt',
-      title: 'Published Date',
-      type: 'datetime',
-      initialValue: () => new Date().toISOString(),
-    }),
-    defineField({
       name: 'content',
       title: 'Article Content (Rich Editor)',
       type: 'blockContent',

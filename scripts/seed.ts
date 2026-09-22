@@ -50,7 +50,6 @@ async function seed() {
       slug: { _type: 'slug', current: 'e-commerce-redesign' },
       description:
         'A complete overhaul of the user experience for a leading e-commerce platform.',
-      tags: ['UI/UX', 'E-commerce', 'Web App'],
       isFeatured: true,
       order: 1,
     },
@@ -60,7 +59,6 @@ async function seed() {
       title: 'Fintech Mobile App',
       slug: { _type: 'slug', current: 'fintech-mobile-app' },
       description: 'Designing a seamless banking experience for the new generation.',
-      tags: ['Mobile App', 'Fintech', 'Design System'],
       isFeatured: true,
       order: 2,
     },
@@ -71,7 +69,6 @@ async function seed() {
       slug: { _type: 'slug', current: 'healthcare-dashboard' },
       description:
         'Simplifying complex medical data into intuitive visual interfaces.',
-      tags: ['Dashboard', 'Healthcare', 'Data Viz'],
       isFeatured: true,
       order: 3,
     },
@@ -82,7 +79,6 @@ async function seed() {
       slug: { _type: 'slug', current: 'real-estate-platform' },
       description:
         'Connecting buyers and sellers through an immersive property search.',
-      tags: ['Web Platform', 'Real Estate'],
       isFeatured: true,
       order: 4,
     },
@@ -93,7 +89,6 @@ async function seed() {
       slug: { _type: 'slug', current: 'travel-booking-site' },
       description:
         'A sleek and modern interface for booking flights and accommodations.',
-      tags: ['Travel', 'Booking', 'Web App'],
       isFeatured: true,
       order: 5,
     },
@@ -113,7 +108,6 @@ async function seed() {
       slug: { _type: 'slug', current: 'the-future-of-ui-design-in-2024' },
       excerpt:
         'Exploring upcoming trends in user interface design and how to prepare for them.',
-      publishedAt: '2024-01-15T00:00:00Z',
       content: [
         {
           _key: 'b1',
@@ -136,7 +130,6 @@ async function seed() {
       slug: { _type: 'slug', current: 'building-accessible-web-applications' },
       excerpt:
         'A comprehensive guide to ensuring your web apps are usable by everyone.',
-      publishedAt: '2024-02-10T00:00:00Z',
       content: [
         {
           _key: 'b2',
@@ -159,7 +152,6 @@ async function seed() {
       slug: { _type: 'slug', current: 'mastering-micro-interactions' },
       excerpt:
         'How small animations can make a huge impact on user experience.',
-      publishedAt: '2024-03-05T00:00:00Z',
       content: [
         {
           _key: 'b3',
@@ -220,12 +212,12 @@ async function seed() {
 
   // 5. Seed Tools
   const tools = [
-    { _id: 'tool-figma', _type: 'tool', name: 'Figma', category: 'design', order: 1 },
-    { _id: 'tool-nextjs', _type: 'tool', name: 'React / Next.js', category: 'development', order: 2 },
-    { _id: 'tool-typescript', _type: 'tool', name: 'TypeScript', category: 'development', order: 3 },
-    { _id: 'tool-tailwind', _type: 'tool', name: 'Tailwind CSS', category: 'development', order: 4 },
-    { _id: 'tool-nodejs', _type: 'tool', name: 'Node.js', category: 'development', order: 5 },
-    { _id: 'tool-vscode', _type: 'tool', name: 'VS Code', category: 'productivity', order: 6 },
+    { _id: 'tool-figma', _type: 'tool', name: 'Figma', order: 1 },
+    { _id: 'tool-nextjs', _type: 'tool', name: 'React / Next.js', order: 2 },
+    { _id: 'tool-typescript', _type: 'tool', name: 'TypeScript', order: 3 },
+    { _id: 'tool-tailwind', _type: 'tool', name: 'Tailwind CSS', order: 4 },
+    { _id: 'tool-nodejs', _type: 'tool', name: 'Node.js', order: 5 },
+    { _id: 'tool-vscode', _type: 'tool', name: 'VS Code', order: 6 },
   ]
 
   for (const tl of tools) {

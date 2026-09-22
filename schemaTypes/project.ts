@@ -35,10 +35,23 @@ export const project = defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
-      name: 'tags',
-      title: 'Tags / Categories',
+      name: 'gallery',
+      title: 'Project Gallery',
       type: 'array',
-      of: [defineArrayMember({ type: 'string' })],
+      description: 'Galeri foto pendukung proyek / case study',
+      of: [
+        defineArrayMember({
+          type: 'image',
+          options: { hotspot: true },
+          fields: [{ name: 'alt', type: 'string', title: 'Alt Text' }],
+        }),
+      ],
+    }),
+    defineField({
+      name: 'content',
+      title: 'Project Content (Rich Editor)',
+      type: 'blockContent',
+      description: 'Dokumentasi lengkap / Case Study proyek',
     }),
     defineField({
       name: 'projectUrl',

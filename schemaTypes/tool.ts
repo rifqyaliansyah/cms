@@ -12,19 +12,6 @@ export const tool = defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
-      name: 'category',
-      title: 'Category',
-      type: 'string',
-      options: {
-        list: [
-          { title: 'Design', value: 'design' },
-          { title: 'Development', value: 'development' },
-          { title: 'Productivity', value: 'productivity' },
-        ],
-      },
-      initialValue: 'design',
-    }),
-    defineField({
       name: 'icon',
       title: 'Tool Icon / Logo',
       type: 'image',
