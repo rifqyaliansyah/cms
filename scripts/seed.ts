@@ -19,6 +19,14 @@ async function seed() {
       { _key: 'qs4', name: 'Node.js' },
       { _key: 'qs5', name: 'Tailwind CSS' },
     ],
+    stats: [
+      { _key: 'st1', label: 'Projects Shipped', value: 12, suffix: '+' },
+      { _key: 'st2', label: 'REST APIs Built', value: 10, suffix: '+' },
+      { _key: 'st3', label: 'Years Building', value: 2, suffix: '+' },
+      { _key: 'st4', label: 'Certifications', value: 6, suffix: '' },
+      { _key: 'st5', label: 'Technologies', value: 12, suffix: '+' },
+      { _key: 'st6', label: 'Internship', value: 1, suffix: '' },
+    ],
     aboutHeadline: 'Design is how I solve problems and create impact.',
     aboutBio:
       "I'm a multidisciplinary designer who loves crafting meaningful and functional digital experiences. With a keen eye for detail and a passion for design, I help brands and products connect with their audience.",
@@ -174,43 +182,7 @@ async function seed() {
   }
   console.log(`✅ ${writings.length} Articles berhasil di-seed!`)
 
-  // 4. Seed Testimonials
-  const testimonials = [
-    {
-      _id: 'testimonial-dimas',
-      _type: 'testimonial',
-      name: 'Dimas Pratama',
-      role: 'Product Manager',
-      quote:
-        'Rifqy selalu bisa nerjemahin requirement yang ambigu jadi UI yang rapi dan gampang dipakai.',
-      order: 1,
-    },
-    {
-      _id: 'testimonial-sarah',
-      _type: 'testimonial',
-      name: 'Sarah Amelia',
-      role: 'UI/UX Designer',
-      quote:
-        'Kerja bareng Rifqy enak banget, komunikasinya jelas dan hasilnya selalu di atas ekspektasi.',
-      order: 2,
-    },
-    {
-      _id: 'testimonial-bagas',
-      _type: 'testimonial',
-      name: 'Bagas Nugraha',
-      role: 'Software Engineer',
-      quote:
-        'Kolaborasi engineering dan design jadi super smooth, aset dan token desain selalu siap pakai.',
-      order: 3,
-    },
-  ]
-
-  for (const t of testimonials) {
-    await client.createOrReplace(t)
-  }
-  console.log(`✅ ${testimonials.length} Testimonials berhasil di-seed!`)
-
-  // 5. Seed Tools
+  // 4. Seed Tools
   const tools = [
     { _id: 'tool-figma', _type: 'tool', name: 'Figma', order: 1 },
     { _id: 'tool-nextjs', _type: 'tool', name: 'React / Next.js', order: 2 },

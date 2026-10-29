@@ -88,6 +88,64 @@ export const profile = defineType({
       ],
     }),
     defineField({
+      name: 'stats',
+      title: 'Hero Metrics (Under Skill Badges)',
+      type: 'array',
+      description:
+        'Angka-angka di bawah skill badge hero. Maksimal 6, disarankan 3 atau 6 supaya grid 3 kolomnya rapi. Jika kosong, frontend memakai data bawaan.',
+      of: [
+        defineArrayMember({
+          type: 'object',
+          name: 'stat',
+          title: 'Metric',
+          fields: [
+            defineField({
+              name: 'label',
+              title: 'Label',
+              type: 'string',
+              description: 'Contoh: Projects Shipped, REST APIs Built',
+              validation: (Rule) => Rule.required().max(24),
+            }),
+            defineField({
+              name: 'value',
+              title: 'Number',
+              type: 'number',
+              validation: (Rule) => Rule.required().integer().min(0),
+            }),
+            defineField({
+              name: 'suffix',
+              title: 'Suffix',
+              type: 'string',
+              description: 'Opsional, contoh: +',
+              validation: (Rule) => Rule.max(2),
+            }),
+          ],
+          preview: {
+            select: {
+              label: 'label',
+              value: 'value',
+              suffix: 'suffix',
+            },
+            prepare({ label, value, suffix }) {
+              return {
+                title: `${value ?? 0}${suffix ?? ''}`,
+                subtitle: label,
+              }
+            },
+          },
+        }),
+      ],
+      validation: (Rule) => Rule.max(6),
+      initialValue: [
+        { label: 'Projects Shipped', value: 12, suffix: '+' },
+        { label: 'REST APIs Built', value: 10, suffix: '+' },
+        { label: 'Years Building', value: 2, suffix: '+' },
+        { label: 'Certifications', value: 6, suffix: '' },
+        { label: 'Technologies', value: 12, suffix: '+' },
+        { label: 'Internship', value: 1, suffix: '' },
+      ],
+    }),
+    defineField({
       name: 'aboutHeadline',
       title: 'About Me Headline',
       type: 'string',
